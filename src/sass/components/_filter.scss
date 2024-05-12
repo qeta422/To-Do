@@ -1,0 +1,15 @@
+.filter {
+  background-color: $color-primary;
+  border-radius: 5px;
+  border: none;
+  padding: 0 10px;
+
+  &:hover {
+    color: $color-hover;
+  }
+
+  p {
+    color: white;
+    margin: 10px 0;
+  }
+}
