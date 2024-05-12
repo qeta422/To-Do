@@ -12,39 +12,35 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("white");
   const [icon, setIcon] = useState(faMoon);
 
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "white" : "dark");
     setIcon(icon === faMoon ? faSun : faMoon);
   };
+
   return (
-    <div className="App">
+    <div className={`App ${theme}`}>
       <Header></Header>
       <div className="content">
         <Input>
           {" "}
-          <input
-            className="input"
-            color={theme}
-            type="text"
-            placeholder="Search note..."
-          />
+          <input className="input" type="text" placeholder="Search note..." />
         </Input>
-        <Filter className={`filter ${theme}`} color={theme}>
+        <Filter className="filter">
           <p>
             ALL &nbsp; &nbsp; &nbsp; <FontAwesomeIcon icon={faChevronDown} />
           </p>
         </Filter>
-        <Mode className={`mode ${theme}`}>
+        <Mode className="mode" toggleTheme={toggleTheme}>
           <button onClick={toggleTheme}>
             <FontAwesomeIcon icon={icon} />
           </button>
         </Mode>
       </div>
       <Add>
-        <button className={`add ${theme}`}>
+        <button className={"add"}>
           <FontAwesomeIcon icon={faPlus} />
         </button>
       </Add>

@@ -6,14 +6,6 @@
   align-items: center;
 }
 
-.dark {
-  background-color: #252525;
-}
-
-.white {
-  background-color: #6c63ff;
-}
-
 .input {
   width: 500px;
   height: 35px;
@@ -29,7 +21,7 @@
 }
 .input:focus {
   outline: none;
-  box-shadow: #6c63ff 0px 0px 3px;
+  box-shadow: #6c63ff 0px 0px 5px;
   transition: 0.5s;
 }
 
@@ -78,6 +70,25 @@
 }
 .mode:hover {
   background-color: #534cc2;
+}
+
+.dark {
+  background-color: #252525;
+  color: #f7f7f7;
+}
+.dark .input {
+  border: 1px solid white;
+  color: white;
+}
+.dark .input:focus {
+  outline: none;
+  box-shadow: white 0px 0px 5px;
+  transition: 0.5s;
+}
+
+.white {
+  background-color: #f7f7f7;
+  color: #252525;
 }
 
 .App-header {

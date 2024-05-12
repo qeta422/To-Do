@@ -3,7 +3,7 @@ import "../App.css";
 
 export default function Mode(props) {
   return (
-    <div className={`mode ${props.color}`} onClick={props.toggleTheme}>
+    <div className={props.className} onClick={props.toggleTheme}>
       {props.children}
     </div>
   );
