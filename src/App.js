@@ -7,7 +7,7 @@ import Filter from "./components/Filter";
 import Mode from "./components/Mode";
 import Add from "./components/Add";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
@@ -22,22 +22,27 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
-      <Input>
-        {" "}
-        <input color={theme} type="text" placeholder="search note" />
-      </Input>
-      <Filter color={theme}>
-        <button className={`filter ${theme}`}>
+      <div className="content">
+        <Input>
+          {" "}
+          <input
+            className="input"
+            color={theme}
+            type="text"
+            placeholder="Search note..."
+          />
+        </Input>
+        <Filter className={`filter ${theme}`} color={theme}>
           <p>
             ALL &nbsp; &nbsp; &nbsp; <FontAwesomeIcon icon={faChevronDown} />
           </p>
-        </button>
-      </Filter>
-      <Mode>
-        <button className={`mode ${theme}`} onClick={toggleTheme}>
-          <FontAwesomeIcon icon={icon} />
-        </button>
-      </Mode>
+        </Filter>
+        <Mode className={`mode ${theme}`}>
+          <button onClick={toggleTheme}>
+            <FontAwesomeIcon icon={icon} />
+          </button>
+        </Mode>
+      </div>
       <Add>
         <button className={`add ${theme}`}>
           <FontAwesomeIcon icon={faPlus} />

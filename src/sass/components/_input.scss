@@ -1,0 +1,20 @@
+.input {
+  width: 500px;
+  height: 35px;
+  border: 1.5px solid $color-primary;
+  background-color: transparent;
+  border-radius: 5px;
+  margin-right: 20px;
+
+  &::placeholder {
+    font-size: 16px;
+    padding-left: 15px;
+    color: #c3c1e5;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: $color-primary 0px 0px 3px;
+    transition: 0.5s;
+  }
+}

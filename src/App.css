@@ -1,5 +1,36 @@
 .App {
-  text-align: center;
+  background-color: #f7f7f7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dark {
+  background-color: #252525;
+}
+
+.white {
+  background-color: #6c63ff;
+}
+
+.input {
+  width: 500px;
+  height: 35px;
+  border: 1.5px solid #6c63ff;
+  background-color: transparent;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+.input::placeholder {
+  font-size: 16px;
+  padding-left: 15px;
+  color: #c3c1e5;
+}
+.input:focus {
+  outline: none;
+  box-shadow: #6c63ff 0px 0px 3px;
+  transition: 0.5s;
 }
 
 .filter {
@@ -9,21 +40,55 @@
   padding: 0 10px;
 }
 .filter:hover {
-  color: #534cc2;
+  background-color: #534cc2;
 }
 .filter p {
   color: white;
   margin: 10px 0;
 }
 
+.add {
+  position: absolute;
+  bottom: 50px;
+  right: 26rem;
+  background-color: #6c63ff;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  font-size: 30px;
+  padding: 6px 11px;
+}
+.add:hover {
+  background-color: #534cc2;
+}
+
+.mode {
+  background-color: #6c63ff;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  margin: 15px;
+}
+.mode button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 17px;
+  width: 30px;
+}
+.mode:hover {
+  background-color: #534cc2;
+}
+
 .App-header {
-  background-color: #f7f7f7;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   font-size: 15px;
   color: #252525;
+  margin-bottom: 5px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
 }
 
 /*# sourceMappingURL=App.css.map */

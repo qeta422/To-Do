@@ -3,7 +3,7 @@ import "../App.css";
 
 export default function Filter(props) {
   return (
-    <div className={`input ${props.color}`} onClick={props.toggleTheme}>
+    <div className={`filter ${props.color}`} onClick={props.toggleTheme}>
       {props.children}
     </div>
   );
