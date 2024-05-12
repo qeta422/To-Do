@@ -6,6 +6,37 @@
   align-items: center;
 }
 
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+@media (max-width: 37.5em) {
+  html {
+    font-size: 30%;
+  }
+}
+@media (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+}
+
 .input {
   width: 500px;
   height: 35px;
@@ -24,12 +55,20 @@
   box-shadow: #6c63ff 0px 0px 5px;
   transition: 0.5s;
 }
+@media (max-width: 37.5em) {
+  .input {
+    width: 400px;
+    text-align: center;
+    margin: 5px 0;
+  }
+}
 
 .filter {
   background-color: #6c63ff;
   border-radius: 5px;
   border: none;
   padding: 0 10px;
+  cursor: pointer;
 }
 .filter:hover {
   background-color: #534cc2;
@@ -37,6 +76,16 @@
 .filter p {
   color: white;
   margin: 10px 0;
+}
+@media (max-width: 37.5em) {
+  .filter {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0;
+  }
+  .filter p {
+    font-size: 20px;
+  }
 }
 
 .add {
@@ -49,6 +98,27 @@
   color: white;
   font-size: 30px;
   padding: 6px 11px;
+  cursor: pointer;
+}
+@media (min-width: 112.5em) {
+  .add {
+    right: 80rem;
+  }
+}
+@media (max-width: 75em) {
+  .add {
+    right: 50rem;
+  }
+}
+@media (max-width: 56.25em) {
+  .add {
+    right: 15rem;
+  }
+}
+@media (max-width: 37.5em) {
+  .add {
+    right: 5rem;
+  }
 }
 .add:hover {
   background-color: #534cc2;
@@ -59,7 +129,26 @@
   border-radius: 5px;
   border: none;
   padding: 10px;
-  margin: 15px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+@media (min-width: 112.5em) {
+  .mode {
+    padding: 8px;
+  }
+}
+@media (max-width: 75em) {
+  .mode {
+    padding: 5px;
+  }
+}
+@media (max-width: 37.5em) {
+  .mode {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0;
+    font-size: 20px;
+  }
 }
 .mode button {
   background-color: transparent;
@@ -67,6 +156,7 @@
   color: white;
   font-size: 17px;
   width: 30px;
+  cursor: pointer;
 }
 .mode:hover {
   background-color: #534cc2;
@@ -85,6 +175,9 @@
   box-shadow: white 0px 0px 5px;
   transition: 0.5s;
 }
+.dark .App-header {
+  color: #f7f7f7;
+}
 
 .white {
   background-color: #f7f7f7;
@@ -92,14 +185,38 @@
 }
 
 .App-header {
-  font-size: 15px;
+  font-size: 30px;
   color: #252525;
-  margin-bottom: 5px;
+}
+@media (min-width: 112.5em) {
+  .App-header {
+    font-size: 45px;
+  }
+}
+@media (max-width: 75em) {
+  .App-header {
+    font-size: 30px;
+  }
+}
+@media (max-width: 56.25em) {
+  .App-header {
+    font-size: 25px;
+  }
+}
+@media (max-width: 37.5em) {
+  .App-header {
+    font-size: 15px;
+  }
 }
 
 .content {
   display: flex;
   align-items: center;
+}
+@media (max-width: 37.5em) {
+  .content {
+    flex-direction: column;
+  }
 }
 
 /*# sourceMappingURL=App.css.map */

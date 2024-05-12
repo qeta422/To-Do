@@ -8,6 +8,23 @@
   color: white;
   font-size: 30px;
   padding: 6px 11px;
+  cursor: pointer;
+
+  @include respond(big-desktop) {
+    right: 80rem;
+  }
+
+  @include respond(tab-land) {
+    right: 50rem;
+  }
+
+  @include respond(tab-port) {
+    right: 15rem;
+  }
+
+  @include respond(phone) {
+    right: 5rem;
+  }
 
   &:hover {
     background-color: $color-hover;

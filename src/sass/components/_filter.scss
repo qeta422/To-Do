@@ -3,6 +3,7 @@
   border-radius: 5px;
   border: none;
   padding: 0 10px;
+  cursor: pointer;
 
   &:hover {
     background-color: $color-hover;
@@ -11,5 +12,15 @@
   p {
     color: white;
     margin: 10px 0;
+  }
+
+  @include respond(phone) {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0;
+
+    p {
+      font-size: 20px;
+    }
   }
 }

@@ -1,4 +1,8 @@
 .content {
   display: flex;
   align-items: center;
+
+  @include respond(phone) {
+    flex-direction: column;
+  }
 }

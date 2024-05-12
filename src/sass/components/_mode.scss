@@ -3,7 +3,23 @@
   border-radius: 5px;
   border: none;
   padding: 10px;
-  margin: 15px;
+  margin-left: 15px;
+  cursor: pointer;
+
+  @include respond(big-desktop) {
+    padding: 8px;
+  }
+
+  @include respond(tab-land) {
+    padding: 5px;
+  }
+
+  @include respond(phone) {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0;
+    font-size: 20px;
+  }
 
   button {
     background-color: transparent;
@@ -11,6 +27,7 @@
     color: white;
     font-size: 17px;
     width: 30px;
+    cursor: pointer;
   }
 
   &:hover {
@@ -31,6 +48,10 @@
       box-shadow: white 0px 0px 5px;
       transition: 0.5s;
     }
+  }
+
+  .App-header {
+    color: #f7f7f7;
   }
 }
 

@@ -17,4 +17,10 @@
     box-shadow: $color-primary 0px 0px 5px;
     transition: 0.5s;
   }
+
+  @include respond(phone) {
+    width: 400px;
+    text-align: center;
+    margin: 5px 0;
+  }
 }

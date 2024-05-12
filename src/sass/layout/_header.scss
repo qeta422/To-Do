@@ -1,5 +1,20 @@
 .App-header {
-  font-size: 15px;
-  color: $color-dark;
-  margin-bottom: 5px;
+  font-size: 30px;
+  color: #252525;
+
+  @include respond(big-desktop) {
+    font-size: 45px;
+  }
+
+  @include respond(tab-land) {
+    font-size: 30px;
+  }
+
+  @include respond(tab-port) {
+    font-size: 25px;
+  }
+
+  @include respond(phone) {
+    font-size: 15px;
+  }
 }
