@@ -96,8 +96,8 @@ body {
   border-radius: 50%;
   border: none;
   color: white;
-  font-size: 30px;
-  padding: 6px 11px;
+  font-size: 24px;
+  padding: 8px 12px;
   cursor: pointer;
 }
 @media (min-width: 112.5em) {
@@ -182,6 +182,88 @@ body {
 .white {
   background-color: #f7f7f7;
   color: #252525;
+}
+
+.show-modal {
+  cursor: pointer;
+}
+
+.close-modal {
+  font-size: 16px;
+  color: #6c63ff;
+  cursor: pointer;
+  border: 1px solid #6c63ff;
+  border-radius: 3px;
+  background: none;
+  margin: 150px 0 15px 0;
+  padding: 5px 15px;
+}
+
+.apply {
+  font-size: 16x;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  background: #6c63ff;
+  border: none;
+  margin: 150px 0 15px 0;
+  padding: 5px 15px;
+}
+
+.modal-h1 {
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.input-modal {
+  width: 100%;
+  height: 35px;
+  border: 1.5px solid #6c63ff;
+  background-color: transparent;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+.input-modal::placeholder {
+  font-size: 16px;
+  padding-left: 15px;
+  color: #c3c1e5;
+}
+.input-modal:focus {
+  outline: none;
+  box-shadow: #6c63ff 0px 0px 5px;
+  transition: 0.5s;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35%;
+  background-color: white;
+  padding: 0 40px;
+  border-radius: 20px;
+  z-index: 10;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
 }
 
 .App-header {
