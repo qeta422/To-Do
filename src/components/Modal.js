@@ -1,13 +1,13 @@
 import React from "react";
 import "../App.css";
 
-export default function Modal({ onClose }) {
+export default function Modal({ onClose, className, theme }) {
   const closeModal = () => {
     onClose();
   };
 
   return (
-    <div className="modal">
+    <div className={`modal ${className} ${theme}`}>
       <h1 className="modal-h1">NEW NOTE</h1>
       <input
         className="input-modal"

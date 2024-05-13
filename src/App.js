@@ -54,7 +54,9 @@ function App() {
         </button>
         {isModalOpen && <div class="overlay"></div>}
       </Add>
-      {isModalOpen && <Modal onClose={closeModal} theme={theme} />}
+      {isModalOpen && (
+        <Modal onClose={closeModal} className="modal" theme={theme} />
+      )}
     </div>
   );
 }

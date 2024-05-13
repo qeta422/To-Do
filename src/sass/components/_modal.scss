@@ -13,6 +13,21 @@
   padding: 5px 15px;
 }
 
+.modal.dark {
+  background-color: #252525;
+  color: $color-light;
+  border: 1px solid $color-light;
+
+  input {
+    border: 1px solid $color-light;
+    &:focus {
+      outline: none;
+      box-shadow: $color-light 0px 0px 5px;
+      transition: 0.5s;
+    }
+  }
+}
+
 .apply {
   font-size: 16x;
   color: white;
