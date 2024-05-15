@@ -1,4 +1,3 @@
-// import "sass/components/input.scss";
 import React from "react";
 import "../App.css";
 

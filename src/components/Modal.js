@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "../App.css";
 
-export default function Modal({ onClose, className, theme }) {
-  const closeModal = () => {
-    onClose();
+export default function Modal({ onClose, onAddNote, className, theme }) {
+  const [noteText, setNoteText] = useState("");
+
+  const handleAddNote = () => {
+    if (noteText.trim()) {
+      onAddNote(noteText.trim());
+      setNoteText("");
+    }
   };
 
   return (
@@ -13,12 +18,16 @@ export default function Modal({ onClose, className, theme }) {
         className="input-modal"
         type="text"
         placeholder="Input your note..."
+        value={noteText}
+        onChange={(e) => setNoteText(e.target.value)}
       />
       <div className="buttons">
-        <button className="close-modal" onClick={closeModal}>
+        <button className="close-modal" onClick={onClose}>
           CANCEL
         </button>
-        <button className="apply">APPLY</button>
+        <button className="apply" onClick={handleAddNote}>
+          APPLY
+        </button>
       </div>
     </div>
   );

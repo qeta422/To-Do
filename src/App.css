@@ -37,6 +37,38 @@ body {
   box-sizing: border-box;
 }
 
+.notes-list {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.note {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #6c63ff;
+  width: 100%;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.note.completed span {
+  text-decoration: line-through;
+}
+
+.note input[type=checkbox] {
+  margin-right: 20px;
+  width: 30px;
+  height: 30px;
+  border-color: 1px solid #6c63ff;
+}
+
+.note input[type=checkbox]:checked {
+  accent-color: #6c63ff;
+}
+
 .input {
   width: 500px;
   height: 35px;
@@ -128,9 +160,13 @@ body {
   background-color: #6c63ff;
   border-radius: 5px;
   border: none;
-  padding: 10px;
+  padding: 8.5px;
   margin-left: 15px;
+  color: white;
+  font-size: 17px;
+  width: 40px;
   cursor: pointer;
+  text-align: center;
 }
 @media (min-width: 112.5em) {
   .mode {
@@ -149,14 +185,6 @@ body {
     margin: 5px 0;
     font-size: 20px;
   }
-}
-.mode button {
-  background-color: transparent;
-  border: none;
-  color: white;
-  font-size: 17px;
-  width: 30px;
-  cursor: pointer;
 }
 .mode:hover {
   background-color: #534cc2;
@@ -205,6 +233,7 @@ body {
   border: 1px solid #f7f7f7;
 }
 .modal.dark input {
+  color: white;
   border: 1px solid #f7f7f7;
 }
 .modal.dark input:focus {
@@ -278,6 +307,45 @@ body {
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(3px);
   z-index: 5;
+}
+
+.dropbtn {
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  cursor: pointer;
+  border: 1px solid #6c63ff;
+  border-radius: 7px;
+}
+
+.dropdown-content button {
+  color: #6c63ff;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+
+.dropdown-content button:hover {
+  background-color: #cddaf9;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 .App-header {
