@@ -10,7 +10,9 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  min-width: 100px;
+  right: 462px;
+  max-width: 90px;
+  float: left;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   cursor: pointer;
@@ -20,7 +22,7 @@
 
 .dropdown-content button {
   color: $color-primary;
-  padding: 12px 16px;
+  padding: 12px 12px 12px 10px;
   text-decoration: none;
   display: block;
   background-color: transparent;
