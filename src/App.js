@@ -21,6 +21,7 @@ function App() {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const [notes, setNotes] = React.useState([]);
   const [filter, setFilter] = React.useState("all");
+  const [searchQuery, setSearchQuery] = React.useState("");
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "dark" ? "white" : "dark"));
@@ -52,14 +53,19 @@ function App() {
     setFilter(value);
   };
 
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
   const filteredNotes = notes.filter((note) => {
-    if (filter === "completed") {
-      return note.completed;
-    } else if (filter === "incomplete") {
-      return !note.completed;
-    } else {
-      return true;
-    }
+    const matchesFilter =
+      filter === "all" ||
+      (filter === "completed" && note.completed) ||
+      (filter === "incomplete" && !note.completed);
+    const matchesSearch = note.text
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
+    return matchesFilter && matchesSearch;
   });
 
   return (
@@ -67,7 +73,13 @@ function App() {
       <Header />
       <div className="content">
         <Input>
-          <input className="input" type="text" placeholder="Search note..." />
+          <input
+            className="input"
+            type="text"
+            placeholder="Search note..."
+            value={searchQuery}
+            onChange={handleSearchChange}
+          />
         </Input>
         <Filter className="filter">
           <div className="dropdown">
