@@ -98,3 +98,26 @@
   backdrop-filter: blur(3px);
   z-index: 5;
 }
+
+.icon:not(:last-child) {
+  margin-left: 300px;
+}
+
+.icon {
+  font-size: 17px;
+  margin-left: 20px;
+  cursor: pointer;
+  color: grey;
+}
+
+.icon:hover {
+  color: #007bff;
+}
+
+.edit-icon:hover {
+  color: rgb(78, 78, 206);
+}
+
+.delete-icon:hover {
+  color: rgb(206, 27, 27);
+}

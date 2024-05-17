@@ -1,14 +1,26 @@
-import React, { useState } from "react";
+// Modal.js
+import React, { useState, useEffect } from "react";
 import "../App.css";
 
-export default function Modal({ onClose, onAddNote, className, theme }) {
-  const [noteText, setNoteText] = useState("");
+export default function Modal({
+  onClose,
+  onAddNote,
+  className,
+  theme,
+  initialValue = "",
+}) {
+  const [noteText, setNoteText] = useState(initialValue);
 
-  const handleAddNote = () => {
-    if (noteText.trim()) {
-      onAddNote(noteText.trim());
-      setNoteText("");
-    }
+  useEffect(() => {
+    setNoteText(initialValue);
+  }, [initialValue]);
+
+  const handleChange = (e) => {
+    setNoteText(e.target.value);
+  };
+
+  const handleApply = () => {
+    onAddNote(noteText);
   };
 
   return (
@@ -19,13 +31,13 @@ export default function Modal({ onClose, onAddNote, className, theme }) {
         type="text"
         placeholder="Input your note..."
         value={noteText}
-        onChange={(e) => setNoteText(e.target.value)}
+        onChange={handleChange}
       />
       <div className="buttons">
         <button className="close-modal" onClick={onClose}>
           CANCEL
         </button>
-        <button className="apply" onClick={handleAddNote}>
+        <button className="apply" onClick={handleApply}>
           APPLY
         </button>
       </div>

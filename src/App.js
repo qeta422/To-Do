@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import "./sass/main.scss";
 import Header from "./components/Header";
@@ -7,21 +7,26 @@ import Filter from "./components/Filter";
 import Mode from "./components/Mode";
 import Add from "./components/Add";
 import Modal from "./components/Modal";
+import EmptyState from "./components/EmptyState";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMoon,
   faSun,
   faPlus,
   faChevronDown,
+  faPencil,
+  faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
-  const [theme, setTheme] = React.useState("white");
-  const [icon, setIcon] = React.useState(faMoon);
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
-  const [notes, setNotes] = React.useState([]);
-  const [filter, setFilter] = React.useState("all");
-  const [searchQuery, setSearchQuery] = React.useState("");
+  const [theme, setTheme] = useState("white");
+  const [icon, setIcon] = useState(faMoon);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [notes, setNotes] = useState([]);
+  const [filter, setFilter] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [noteToEdit, setNoteToEdit] = useState(null);
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "dark" ? "white" : "dark"));
@@ -55,6 +60,29 @@ function App() {
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
+  };
+
+  const handleEditNote = (index) => {
+    setNoteToEdit({ ...notes[index], index });
+    setIsEditModalOpen(true);
+  };
+
+  const handleDeleteNote = (index) => {
+    setNotes(notes.filter((_, i) => i !== index));
+  };
+
+  const handleEditModalClose = () => {
+    setIsEditModalOpen(false);
+  };
+
+  const handleUpdateNote = (updatedNote) => {
+    setNotes(
+      notes.map((note, i) =>
+        i === noteToEdit.index ? { ...note, text: updatedNote } : note
+      )
+    );
+    setIsEditModalOpen(false);
+    setNoteToEdit(null);
   };
 
   const filteredNotes = notes.filter((note) => {
@@ -102,19 +130,33 @@ function App() {
         </Mode>
       </div>
       <div className="notes-list">
-        {filteredNotes.map((note, index) => (
-          <div
-            key={index}
-            className={`note ${note.completed ? "completed" : ""}`}
-          >
-            <input
-              type="checkbox"
-              checked={note.completed}
-              onChange={() => toggleNoteCompletion(index)}
-            />
-            <span>{note.text}</span>
-          </div>
-        ))}
+        {filteredNotes.length > 0 ? (
+          filteredNotes.map((note, index) => (
+            <div
+              key={index}
+              className={`note ${note.completed ? "completed" : ""}`}
+            >
+              <input
+                type="checkbox"
+                checked={note.completed}
+                onChange={() => toggleNoteCompletion(index)}
+              />
+              <span>{note.text}</span>
+              <FontAwesomeIcon
+                icon={faPencil}
+                className="icon edit-icon"
+                onClick={() => handleEditNote(index)}
+              />
+              <FontAwesomeIcon
+                icon={faTrashCan}
+                className="icon delete-icon"
+                onClick={() => handleDeleteNote(index)}
+              />
+            </div>
+          ))
+        ) : (
+          <EmptyState />
+        )}
       </div>
       <Add>
         <button className="add show-modal" onClick={openModal}>
@@ -128,6 +170,15 @@ function App() {
           onAddNote={addNote}
           className="modal"
           theme={theme}
+        />
+      )}
+      {isEditModalOpen && (
+        <Modal
+          onClose={handleEditModalClose}
+          onAddNote={handleUpdateNote}
+          className="modal"
+          theme={theme}
+          initialValue={noteToEdit.text}
         />
       )}
     </div>
