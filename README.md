@@ -12,5 +12,6 @@ When you click on the add button, a modal window (popup) appears, its functional
 ` A preprocessor (SASS/SCSS) is used for styling.
 
 ` The app has dark and light modes built based on React props
-</br>
+<br>
+<br>
 View demo here: https://reacttd.netlify.app/
